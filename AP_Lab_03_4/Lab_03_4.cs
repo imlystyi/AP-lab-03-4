@@ -13,20 +13,17 @@ namespace AP_Lab_03_4
         {
             Console.OutputEncoding = System.Text.Encoding.Default;
 
-            bool result;
-
-            double x, y, R;
-
             Console.Write("Введіть змінні \"x\", \"y\" та \"R\" по черзі через крапку з комою: ");
 
             string[] varArray = Console.ReadLine().Split(';');
 
-            x = Double.Parse(varArray[0].Replace('.', ','));
-            y = Double.Parse(varArray[1].Replace('.', ','));
-            R = Double.Parse(varArray[2].Replace('.', ','));
+            double x = Double.Parse(varArray[0].Replace('.', ',')),
+                y = Double.Parse(varArray[1].Replace('.', ',')),
+                R = Double.Parse(varArray[2].Replace('.', ','));
 
             /* -R <= x <= R; 0 <= y <= R; x^2 + y^2 <= R^2 -> true;
              * x > y; -R < y < 0 -> true. */
+            bool result;
 
             if (x >= -R && x <= R && y >= 0 && y <= R && (Math.Pow(x, 2) + Math.Pow(y, 2) <= Math.Pow(R, 2)))
                 result = true;
